@@ -74,3 +74,4 @@
 
 ## 架构设计 Architecture
 
+![Architecture](assets/Designs/Architecture.png)
