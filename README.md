@@ -78,3 +78,5 @@
 
 ## 文档 Documentation
 
+- **数据结构说明 Data Schema**
+  - **[HTTP 响应数据结构 Response Schema](docs/response-schema.md)**
