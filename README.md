@@ -4,6 +4,8 @@
 
 > *ADB：汽车信息数据服务。我们致力于提供一个相对完善的“车辆信息”数据服务，并将它应用到现实生活的各个场景当中去。比如：二手车的交易、汽车金融等场景。*
 
+![GitHub issues](https://img.shields.io/github/issues/niacomsoft/adb?logo=github&style=flat-square)
+
 ----
 
 ![ADB](assets/Icons/Icon-128.png)
