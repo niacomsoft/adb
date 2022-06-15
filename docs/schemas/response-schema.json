@@ -1,0 +1,190 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Adb OpenAPI Response Schema",
+    "type": "object",
+    "required": ["$metadata"],
+    "definitions": {
+        "exception":{
+            "description": "定义了异常类型",
+            "type": "object",
+            "required": ["typeName", "message", "stackTrace"],
+            "properties": {
+                "typeName": {
+                    "description": "异常类型信息",
+                    "type": "string",
+                    "minLength": 1
+                },
+                "message": {
+                    "description": "异常描述信息",
+                    "type": "string",
+                    "minLength": 1
+                },
+                "stackTrace": {
+                    "description": "异常堆栈信息",
+                    "type": "string",
+                    "minLength": 1
+                },
+                "innerException": {
+                    "description": "引发此异常的内部异常",
+                    "type": ["null", "object"],
+                    "$ref": "#/definitions/exception"
+                }
+            }
+        }
+    },
+    "properties": {
+        "$metadata": {
+            "type": "object",
+            "description": "描述接口的元数据",
+            "required": ["service", "info", "request"],
+            "properties": {
+                "service": {
+                    "type": "object",
+                    "description": "描述服务信息的元数据",
+                    "required": ["name", "version", "mainVersion"],
+                    "properties": {
+                        "name": {
+                            "description": "服务注册名称",
+                            "type": "string",
+                            "minLength": 1
+                        },
+                        "displayName": {
+                            "description": "服务显示名称",
+                            "type": "string"
+                        },
+                        "id": {
+                            "description": "服务注册 ID",
+                            "type": "string",
+                            "minLength": 1
+                        },
+                        "version": {
+                            "description": "服务版本号数值",
+                            "type": "string",
+                            "minLength": 1
+                        },
+                        "mainVersion": {
+                            "description": "服务主版本",
+                            "type": "string",
+                            "minLength": 1,
+                            "pattern": "^v"
+                        }
+                    }
+                },
+                "info": {
+                    "type": "object",
+                    "description": "描述信息元数据",
+                    "required": ["author", "git"],
+                    "properties": {
+                        "author": {
+                            "description": "作者信息",
+                            "type": "array",
+                            "minItems": 1,
+                            "items": {
+                                "type":"object",
+                                "required": ["name"],
+                                "properties": {
+                                    "name": {
+                                        "description": "作者姓名",
+                                        "type": "string"
+                                    },
+                                    "emailAddress": {
+                                        "description": "联系作者的电邮地址",
+                                        "type": "string"
+                                    },
+                                    "url": {
+                                        "description": "作者主页",
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "git": {
+                            "description": "Git 代码仓库信息",
+                            "type": "string",
+                            "default": "https://github.com/niacomsoft/adb"
+                        },
+                        "techStack": {
+                            "description": "技术栈信息",
+                            "type": "string",
+                            "enum": ["ASP.NET", "ASP.NET Core", "Spring Cloud", "PHP", "Node"],
+                            "default": "ASP.NET Core"
+                        },
+                        "os": {
+                            "description": "操作系统信息",
+                            "type": "string",
+                            "enum": ["Windows", "Windows Server", "Linux"],
+                            "default": "Linux"
+                        },
+                        "hosting": {
+                            "description": "托管运行方式信息",
+                            "type": "string",
+                            "enum": ["Hosting", "Docker"],
+                            "default": "Docker"
+                        }
+                    }
+                },
+                "request":{
+                    "description": "描述请求的信息",
+                    "type": "object",
+                    "required": ["uri"],
+                    "properties": {
+                        "uri": {
+                            "description": "当前请求的服务 URI 信息",
+                            "type": "string",
+                            "default": "/"
+                        },
+                        "method": {
+                            "description": "请求方法信息",
+                            "type": "string",
+                            "default": "Get"
+                        },
+                        "contentType": {
+                            "type": "string",
+                            "description": "请求内容信息",
+                            "default": "application/json;charset=utf-8"
+                        }
+                    }
+                },
+                "response": {
+                    "description": "描述响应的信息",
+                    "type": "object",
+                    "required": ["code"],
+                    "properties": {
+                        "code": {
+                            "description": "服务响应代码信息",
+                            "type": "integer",
+                            "default": "200",
+                            "minimum": 0
+                        },
+                        "description": {
+                            "description": "服务响应代码描述信息",
+                            "type": ["null", "string"],
+                            "default": null
+                        },
+                        "detail": {
+                            "description": "服务响应详细信息",
+                            "type": ["string", "null"],
+                            "default": null
+                        },
+                        "data": {
+                            "description": "服务返回的数据",
+                            "default": null
+                        },
+                        "errors": {
+                            "description": "服务器异常描述信息",
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "$ref": "#/definitions/exception"
+                            }
+                        },
+                        "time": {
+                            "description": "服务器时间信息",
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

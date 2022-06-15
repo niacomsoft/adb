@@ -1,0 +1,42 @@
+{
+    "$schema": "response-schema.json",
+    "$metadata": {
+        "service":{
+            "name": "Authentication Service",
+            "version": "1.0.0",
+            "mainVersion": "v1",
+            "id": "FEjcw0uYJZ",
+            "displayName": "身份认证服务"
+        },
+        "info": {
+            "author": [{
+                "name": "Wang Yucai",
+                "emailAddress": "NetOwls-Studio@Outlook.com",
+                "url": "https://www.baidu.com"
+            }],
+            "git": "https://github.com/niacomsoft/adb",
+            "techStack": "ASP.NET Core",
+            "os": "Linux",
+            "hosting": "Docker"
+        },
+        "request": {
+            "uri": "/",
+            "method": "Get",
+            "contentType": "application/json;charset=utf-8"
+        },
+        "response": {
+            "code": 200,
+            "description": null,
+            "detail": null,
+            "data": null,
+            "errors": [
+                {
+                    "typeName": "System.Exception",
+                    "message": "服务器引发了未处理的异常。",
+                    "stackTrace": "Adb thrown an unhandled exception."
+                }
+            ],
+            "time": "2022-06-15 13:31:21"
+        }
+    }
+}
