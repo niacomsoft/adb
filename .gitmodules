@@ -1,3 +1,0 @@
-[submodule "modules/server"]
-	path = modules/server
-	url = git@github.com:niacomsoft/adb-server.git
