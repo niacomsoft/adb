@@ -15,5 +15,5 @@
     "release:release": "standard-version -i CHANGELOG.md"
   },
   "license": "MIT",
-  "version": "1.0.0-alpha.0"
+  "version": "1.0.0-dev.0"
 }
