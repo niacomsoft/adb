@@ -3,6 +3,8 @@
     "standard-version": "^9.5.0"
   },
   "scripts": {
+    "release:dev-dryrun": "standard-version -p dev -i CHANGELOG.md --dry-run",
+    "release:dev": "standard-version -p dev -i CHANGELOG.md",
     "release:alpha-dryrun": "standard-version -p alpha -i CHANGELOG.md --dry-run",
     "release:alpha": "standard-version -p alpha -i CHANGELOG.md",
     "release:beta-dryrun": "standard-version -p beta -i CHANGELOG.md --dry-run",
